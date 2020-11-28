@@ -11,11 +11,11 @@ function Search(){
           </Container>
         </Jumbotron>
         <form>
-      <div className="form-group" style={{border: '1px solid black', marginLeft: 10, marginRight: 10}}>
+      <div className="form-group" style={{border: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
         <h3 style={{textAlign: 'left'}}>Book Search</h3>
         <br/>
-        <p style={{textAlign: 'left'}}>Book</p>
-        <label htmlFor="search">Search:</label>
+        
+        <label htmlFor="search">Book:</label>
         <input
         //   onChange={props.handleInputChange}
         //   value={props.search}
@@ -25,14 +25,24 @@ function Search(){
           placeholder="Search Google Books"
           id="search"
         />
-        <button className="btn btn-primary mt-3" style={{alignText: 'right',}}>
+        <button className="btn btn-primary mt-3">
           SEARCH
         </button>
       </div>
     </form>
 
-    <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10}}>
+    <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
         <h5>Results:</h5>
+        <div class="card">
+            <div class="card-body">
+                <h4>Book title</h4>
+                <button style={{float: 'right', margin: 5}}>View</button>
+                <button style={{float: 'right', margin: 5}}>Save</button>
+                <p>Authors</p>
+                <img alt="yoyoyo"/>
+                <p style={{textAlign: 'right'}}>Description</p>
+            </div>
+        </div>
     </div>
       </div>
 

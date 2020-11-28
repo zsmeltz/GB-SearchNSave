@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./Components/Navbar.js"
-import Search from "./Components/Pages/Search.js"
+import SearchPage from "./Components/Pages/SearchPage.js"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
        <Router>
        <div>
        <NavBar/>
-       <Route exact path="/" component={Search} />
+       <Route exact path="/" component={SearchPage} />
        </div>
        </Router>
    </div>

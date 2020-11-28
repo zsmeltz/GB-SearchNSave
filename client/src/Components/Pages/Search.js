@@ -1,5 +1,6 @@
 import React from "react";
 import { Jumbotron, Container } from 'reactstrap';
+import BookBlock from "./BookBlock.js";
 
 function Search(){
     return(
@@ -33,16 +34,7 @@ function Search(){
 
     <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
         <h5>Results:</h5>
-        <div class="card">
-            <div class="card-body">
-                <h4>Book title</h4>
-                <button style={{float: 'right', margin: 5}}>View</button>
-                <button style={{float: 'right', margin: 5}}>Save</button>
-                <p>Authors</p>
-                <img alt="yoyoyo"/>
-                <p style={{textAlign: 'right'}}>Description</p>
-            </div>
-        </div>
+        <BookBlock/>
     </div>
       </div>
 

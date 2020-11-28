@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -14,7 +14,7 @@ import {
 
 
 function NavBar() {
-    // const location = useLocation();
+    const location = useLocation();
 
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
@@ -27,7 +27,7 @@ function NavBar() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink>Search</NavLink>
+              <Link to="/" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Search</Link>
             </NavItem>
             <NavItem>
               <NavLink >Saved</NavLink>
@@ -42,5 +42,4 @@ function NavBar() {
 export default NavBar;
 
 
-// to="/" className={location.pathname === "/search" ? "nav-link active" : "nav-link"
 // to="/saved" className={location.pathname === "/saved" ? "nav-link active" : "nav-link"}

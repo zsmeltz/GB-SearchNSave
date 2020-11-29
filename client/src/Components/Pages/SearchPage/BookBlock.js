@@ -1,6 +1,7 @@
 import React from "react";
 
 function BookBlock(props){
+    // if (err) throw err;
     return(
         <ul>
         {props.books.map(book => (
@@ -18,7 +19,8 @@ function BookBlock(props){
         </li>
         ))}
         </ul>
-    )
-}
+    );
+   
+};
 
 export default BookBlock;

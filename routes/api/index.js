@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const genericRoutes = require("./generic");
+const bookRoutes = require("./books");
 
-// generic routes
-router.use("/generic", genericRoutes);
+// Book routes
+router.use("/savedBooks", bookRoutes);
 
 module.exports = router;

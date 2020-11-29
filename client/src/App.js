@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./Components/Navbar.js"
-import SearchPage from "./Components/Pages/SearchPage.js"
+import SearchPage from "./Components/Pages/SearchPage/SearchPage.js"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Heading from "./Components/Jumbotron.js";
 

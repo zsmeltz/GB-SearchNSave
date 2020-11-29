@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express');
 const routes = require('./routes');
+const mongoose = require('mongoose');
 
 // Express instance
 const app = express();
@@ -17,6 +18,8 @@ if (process.env.NODE_ENV === 'production') {
     // The react app is called 'client' and we are accessing the build folder that is initialized in the postbuild scripts.
     app.use(express.static('client/build'))
 };
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
 // API and View Routes
 app.use(routes);

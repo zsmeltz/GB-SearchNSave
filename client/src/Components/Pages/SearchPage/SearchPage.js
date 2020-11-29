@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import BookBlock from "./BookBlock.js";
-import API from "../../utils/API";
+import API from "../../../utils/API";
 import SearchForm from "./SearchForm";
 
 class SearchPage extends Component {

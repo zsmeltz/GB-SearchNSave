@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Jumbotron, Container } from 'reactstrap';
 import BookBlock from "./BookBlock.js";
 import API from "../../utils/API";
 import SearchForm from "./SearchForm";
@@ -7,17 +6,22 @@ import SearchForm from "./SearchForm";
 class SearchPage extends Component {
 
   state = {
-    result: {},
+    result: [],
     search: ""
   };
 
   searchBooks = query => {
 
     API.search(query)
-      .then(res => console.log(res.data.items))
-      .catch(err => console.log(err));
+      .then(res => this.setState({ result: res.data.items }))
+      .catch(err => {
+        if (err) console.log(err);
+        window.location.reload();
+        alert("Could not find your search, please try a different book");
+      });
   };
-  // this.setState({ result: res.data.items })
+  
+  // console.log(res.data.items)
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -35,12 +39,6 @@ class SearchPage extends Component {
   render(){
     return(
         <div>
-        <Jumbotron fluid>
-          <Container fluid>
-            <h1 className="display-3" style={{textAlign: 'center'}}>(React) Google Books Search</h1>
-            <p className="lead" style={{textAlign: 'center'}}>Search for and save books of interest!</p>
-          </Container>
-        </Jumbotron>
         <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
@@ -48,7 +46,7 @@ class SearchPage extends Component {
               />
     <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
         <h5>Results:</h5>
-        <BookBlock/>
+        <BookBlock  books={this.state.result}/>
     </div>
       </div>
 

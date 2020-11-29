@@ -1,22 +1,22 @@
 import React from "react";
 
-function BookBlock(){
+function BookBlock(props){
     return(
         <ul>
-        <li>
-
-        <div class="card">
-            <div class="card-body">
+        {props.books.map(book => (
+        <li style={{margin: 15}}>
+        <div className="card">
+            <div className="card-body">
                 <button style={{float: 'right', margin: 5}}>Save</button>
-                <button style={{float: 'right', margin: 5}}>View</button>
-                <h4>Book title</h4>
-                <p>Authors</p>
-                <img alt="yoyoyo"/>
-                <p style={{textAlign: 'right'}}>Description</p>
+                <a href={book.volumeInfo.previewLink} target="_blank" rel="noreferrer"><button style={{float: 'right', margin: 5}}>View</button></a>
+                <h4>{book.volumeInfo.title}</h4>
+                <p>{book.volumeInfo.authors}</p>
+                <img src={book.volumeInfo.imageLinks.thumbnail} align='left' alt="yoyoyo" style={{margin: 10}}/>
+                <p align='right'>{book.volumeInfo.description}</p>
             </div>
         </div>
-        
         </li>
+        ))}
         </ul>
     )
 }

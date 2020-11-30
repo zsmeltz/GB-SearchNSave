@@ -3,17 +3,19 @@ import BookBlock from "./BookBlock.js";
 import API from "../../../utils/API";
 import SearchForm from "./SearchForm";
 
+
 class SearchPage extends Component {
 
   state = {
-    result: [],
+    results: [],
+    result: {},
     search: ""
   };
 
   searchBooks = query => {
 
     API.search(query)
-      .then(res => this.setState({ result: res.data.items }))
+      .then(res => this.setState({ results: res.data.items }))
       .catch(err => {
         if (err) console.log(err);
         window.location.reload();
@@ -29,6 +31,8 @@ class SearchPage extends Component {
       [name]: value
     });
   };
+
+
 
  
   handleFormSubmit = event => {
@@ -46,7 +50,7 @@ class SearchPage extends Component {
               />
     <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
         <h5>Results:</h5>
-        <BookBlock  books={this.state.result}/>
+        <BookBlock  books={this.state.results}/>
     </div>
       </div>
 

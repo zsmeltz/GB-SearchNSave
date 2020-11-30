@@ -1,4 +1,5 @@
 import React from "react";
+import SBDB from "../../../utils/SBDB";
 
 function BookBlock(props){
     // if (err) throw err;
@@ -8,7 +9,21 @@ function BookBlock(props){
         <li style={{margin: 15}}>
         <div className="card">
             <div className="card-body">
-                <button style={{float: 'right', margin: 5}}>Save</button>
+                <button style={{float: 'right', margin: 5}} onClick={
+                    function bookSave (event) {
+                        event.preventDefault(); 
+                        console.log("In book save. Maybe tried to make a post")
+
+                        SBDB.saveBook({
+                        title: book.volumeInfo.title, 
+                        authors: book.volumeInfo.authors, 
+                        thumbnail: book.volumeInfo.imageLinks.thumbnail, 
+                        description: book.volumeInfo.description, 
+                        view: book.volumeInfo.previewLink
+                        }).catch(err => console.log(err));
+                        console.log("Apperently posted the selected bookData")
+
+                    }}>Save</button>
                 <a href={book.volumeInfo.previewLink} target="_blank" rel="noreferrer"><button style={{float: 'right', margin: 5}}>View</button></a>
                 <h4>{book.volumeInfo.title}</h4>
                 <p>{book.volumeInfo.authors}</p>
@@ -20,7 +35,7 @@ function BookBlock(props){
         ))}
         </ul>
     );
-   
+    
 };
 
 export default BookBlock;

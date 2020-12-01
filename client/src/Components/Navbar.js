@@ -6,8 +6,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from 'reactstrap';
 
 
@@ -30,7 +29,7 @@ function NavBar() {
               <Link to="/" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Search</Link>
             </NavItem>
             <NavItem>
-              <NavLink >Saved</NavLink>
+              <Link to="/saved" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Saved</Link>
             </NavItem>
             </Nav>
         </Collapse>

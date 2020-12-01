@@ -1,34 +1,24 @@
-// Dependencies
-const express = require('express');
-const routes = require('./routes');
-const mongoose = require('mongoose');
+const express = require("express");
 
-// Express instance
+const mongoose = require("mongoose");
+const routes = require("./routes");
 const app = express();
+const PORT = process.env.PORT || 9004;
 
-// Variable Port
-const PORT = process.env.PORT || 9001;
-
-// Middleware
+// Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// If our node environment is production we will serve up our static assets from the build folder
-if (process.env.NODE_ENV === 'production') {
-    // The react app is called 'client' and we are accessing the build folder that is initialized in the postbuild scripts.
-    app.use(express.static('client/build'))
-};
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
-  useNewUrlParser: true
-});
-
-// API and View Routes
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
 app.use(routes);
 
-// Start the server
-app.listen(PORT, () => {
-    if (process.env.NODE_ENV !== 'production') {
-        console.log(`Server listening at http://localhost:${PORT}`)
-    };
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`Server now listening on PORT ${PORT}!`);
 });

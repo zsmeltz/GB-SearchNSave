@@ -13,14 +13,18 @@ function BookBlock(props){
                     function bookSave (event) {
                         event.preventDefault(); 
                         console.log("In book save. Maybe tried to make a post")
+                        
+                        var author = book.volumeInfo.authors.toString();
 
                         SBDB.saveBook({
-                        title: book.volumeInfo.title, 
-                        authors: book.volumeInfo.authors, 
-                        thumbnail: book.volumeInfo.imageLinks.thumbnail, 
-                        description: book.volumeInfo.description, 
-                        view: book.volumeInfo.previewLink
+                            title: book.volumeInfo.title,
+                            authors: author,
+                            thumbnail: book.volumeInfo.imageLinks.thumbnail,
+                            description: book.volumeInfo.description,
+                            view: book.volumeInfo.previewLink,
+                            date: new Date(Date.now())
                         }).catch(err => console.log(err));
+
                         console.log("Apperently posted the selected bookData")
 
                     }}>Save</button>

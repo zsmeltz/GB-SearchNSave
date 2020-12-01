@@ -10,8 +10,6 @@ import {
 } from 'reactstrap';
 
 
-
-
 function NavBar() {
     const location = useLocation();
 
@@ -39,6 +37,3 @@ function NavBar() {
 };
 
 export default NavBar;
-
-
-// to="/saved" className={location.pathname === "/saved" ? "nav-link active" : "nav-link"}

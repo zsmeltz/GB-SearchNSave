@@ -2,7 +2,7 @@ import React from "react";
 import SBDB from "../../../utils/SBDB";
 
 function BookBlock(props){
-    // if (err) throw err;
+    
     return(
         <ul>
         {props.books.map(book => (
@@ -12,7 +12,7 @@ function BookBlock(props){
                 <button style={{float: 'right', margin: 5}} onClick={
                     function bookSave (event) {
                         event.preventDefault(); 
-                        console.log("In book save. Maybe tried to make a post")
+                  
                         
                         var author = book.volumeInfo.authors.toString();
 
@@ -25,7 +25,7 @@ function BookBlock(props){
                             date: new Date(Date.now())
                         }).catch(err => console.log(err));
 
-                        console.log("Apperently posted the selected bookData")
+                       
 
                     }}>Save</button>
                 <a href={book.volumeInfo.previewLink} target="_blank" rel="noreferrer"><button style={{float: 'right', margin: 5}}>View</button></a>

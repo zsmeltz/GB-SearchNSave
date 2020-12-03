@@ -1,4 +1,5 @@
 import React from "react";
+import {Button} from "reactstrap";
 
 function SearchForm(props){
     return(
@@ -17,9 +18,9 @@ function SearchForm(props){
             placeholder="Search Google Books"
             id="search"
           />
-          <button className="btn btn-primary mt-3" onClick={props.handleFormSubmit}>
+          <Button color="success" style={{marginTop: 10}} onClick={props.handleFormSubmit}>
             SEARCH
-          </button>
+          </Button>
         </div>
       </form>
     );

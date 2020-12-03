@@ -6,8 +6,8 @@ class SavedPage extends Component {
    
     render(){
         return(
-            <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
-                <h5>Saved Books:</h5>
+        <div style={{borderBlock: '1px solid black',width: '100%', padding: 10, backgroundColor: '#707070'}}>
+            <h5 style={{color: 'whitesmoke'}}>Saved Books:</h5>
                 <SvdBookBlock/>
             </div>
         );

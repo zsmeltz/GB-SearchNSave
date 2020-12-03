@@ -3,12 +3,12 @@ import {Button} from "reactstrap";
 
 function SearchForm(props){
     return(
-        <form>
+        <form style={{backgroundColor: 'black', marginBottom: 30}}>
         <div className="form-group" style={{border: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
-          <h3 style={{textAlign: 'left'}}>Book Search</h3>
+          <h3 style={{textAlign: 'left', color: 'whitesmoke'}}>Book Search</h3>
           <br/>
           
-          <label htmlFor="search">Book:</label>
+          <label htmlFor="search" style={{color: 'whitesmoke'}}>Book:</label>
           <input
             onChange={props.handleInputChange}
             value={props.search}

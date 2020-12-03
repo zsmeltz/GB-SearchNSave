@@ -48,8 +48,8 @@ class SearchPage extends Component {
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
               />
-    <div style={{borderBlock: '1px solid black', marginLeft: 10, marginRight: 10, padding: 10}}>
-        <h5>Results:</h5>
+    <div style={{borderBlock: '1px solid black',width: '100%', padding: 10, backgroundColor: '#707070'}}>
+        <h5 style={{color: 'whitesmoke'}}>Results:</h5>
         <BookBlock  books={this.state.results}/>
     </div>
       </div>

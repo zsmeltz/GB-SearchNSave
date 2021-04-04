@@ -4,15 +4,17 @@ import API from "../../../utils/API";
 import SearchForm from "./SearchForm";
 
 class SearchPage extends Component {
-  state = {
-    results: [],
-    result: {},
-    search: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: [],
+      result: {},
+      search: "",
+    };
+  }
 
-  searchBooks = (query) => {
-    let query = this.state.search;
-    API.search(query)
+  searchBooks = () => {
+    API.search(this.state.search)
       .then((res) => this.setState({ results: res.data.items }))
       .catch((err) => {
         if (err) console.log(err);

@@ -23,18 +23,18 @@ class SearchPage extends Component {
       });
   };
 
-  handleInputChange = (text) => {
-    this.setState({
-      search: text,
-    });
-  };
+  // handleInputChange = (text) => {
+  //   this.setState({
+  //     search: text,
+  //   });
+  // };
 
   render() {
     return (
       <div>
         <SearchForm
-          value={this.state.search}
-          handleInputChange={this.handleInputChange}
+          search={this.state.search}
+          // handleInputChange={this.handleInputChange}
           handleFormSubmit={this.searchBooks()}
         />
         <div

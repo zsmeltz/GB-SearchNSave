@@ -21,7 +21,7 @@ function SearchForm(props) {
         </label>
         <input
           onChange={props.handleInputChange(text)}
-          value={props.search}
+          value={text}
           name="search"
           type="text"
           className="form-control"

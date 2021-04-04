@@ -29,18 +29,13 @@ class SearchPage extends Component {
     });
   };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    this.searchBooks(this.state.search);
-  };
-
   render() {
     return (
       <div>
         <SearchForm
           value={this.state.search}
           handleInputChange={this.handleInputChange}
-          handleFormSubmit={this.handleFormSubmit}
+          handleFormSubmit={this.searchBooks()}
         />
         <div
           style={{

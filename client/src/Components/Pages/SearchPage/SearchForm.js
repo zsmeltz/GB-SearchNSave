@@ -20,6 +20,7 @@ function SearchForm(props) {
           Book:
         </label>
         <input
+          onChange={props.handleInputChange}
           value={props.search}
           name="search"
           type="text"

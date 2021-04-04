@@ -4,17 +4,14 @@ import API from "../../../utils/API";
 import SearchForm from "./SearchForm";
 
 class SearchPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      results: [],
-      result: {},
-      search: "",
-    };
-  }
+  state = {
+    results: [],
+    result: {},
+    search: "",
+  };
 
-  searchBooks = () => {
-    API.search(this.state.search)
+  searchBooks = (query) => {
+    API.search(query)
       .then((res) => this.setState({ results: res.data.items }))
       .catch((err) => {
         if (err) console.log(err);
@@ -23,19 +20,26 @@ class SearchPage extends Component {
       });
   };
 
-  // handleInputChange = (text) => {
-  //   this.setState({
-  //     search: text,
-  //   });
-  // };
+  handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.searchBooks(this.state.search);
+  };
 
   render() {
     return (
       <div>
         <SearchForm
-          search={this.state.search}
-          // handleInputChange={this.handleInputChange}
-          handleFormSubmit={this.searchBooks()}
+          value={this.state.search}
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}
         />
         <div
           style={{
